@@ -1,0 +1,1267 @@
+/* 文档管理面板主容器 */
+.document-panel {
+  width: 320px;
+  height: 100%;
+  background: #fafafa;
+  border-right: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 8px; /* 为底部留出空间 */
+  position: relative;
+  min-width: 240px; /* 增加最小宽度从200px到240px */
+  max-width: 600px; /* 最大宽度 */
+  transition: all 0.3s ease-in-out;
+}
+
+/* 头部区域 */
+.document-panel-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px; /* 确保最小高度 */
+  flex-shrink: 0; /* 防止头部被压缩 */
+}
+
+/* 控制按钮区域 */
+.document-panel-controls {
+  padding: 8px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.control-actions .ant-btn {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #595959;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.control-actions .ant-btn:hover {
+  border-color: #40a9ff;
+  color: #1890ff;
+  background: #f0f8ff;
+}
+
+.control-actions .ant-btn:active {
+  border-color: #096dd9;
+  color: #096dd9;
+}
+
+/* 隐藏面板时的切换按钮 */
+.document-panel-toggle-button {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+.document-panel-toggle-button .ant-btn {
+  background: #1890ff;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 2px 0 8px rgba(24, 144, 255, 0.3);
+}
+
+.document-panel-toggle-button .ant-btn:hover {
+  background: #40a9ff;
+  color: #fff;
+  transform: translateX(2px);
+  box-shadow: 4px 0 12px rgba(24, 144, 255, 0.4);
+}
+
+.document-panel-toggle-button .ant-btn:active {
+  transform: translateX(1px);
+}
+
+/* 动画效果 */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateY(-50%) translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+.document-panel-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  white-space: nowrap; /* 防止文字换行 */
+  flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+.header-actions {
+  display: flex;
+  gap: 2px; /* 减少按钮间距从4px到2px */
+  align-items: center;
+  flex-wrap: wrap; /* 允许换行，但尽量避免 */
+  justify-content: flex-end;
+}
+
+.header-actions .ant-btn {
+  border: none;
+  box-shadow: none;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px; /* 减少最小宽度从32px到28px */
+  height: 28px; /* 固定高度 */
+  padding: 0 6px; /* 减少内边距 */
+  font-size: 12px; /* 稍微减小字体 */
+  border-radius: 4px;
+}
+
+.header-actions .ant-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.header-actions .ant-btn:focus {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* 搜索区域 */
+.document-panel-search {
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.document-panel-search .ant-input-search {
+  border-radius: 6px;
+}
+
+/* 树形结构区域 */
+.document-panel-tree {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  background: #fafafa;
+}
+
+.document-panel-tree .ant-tree {
+  background: transparent;
+}
+
+.document-panel-tree .ant-tree-node-content-wrapper {
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.document-panel-tree .ant-tree-node-content-wrapper:hover {
+  background: #f0f0f0;
+}
+
+.document-panel-tree .ant-tree-node-selected {
+  background: #e6f7ff !important;
+}
+
+/* 文件夹项样式 */
+.folder-item {
+  display: block; /* 改为块级元素，让子内容显示在下方 */
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 2px; /* 增加文件夹间的间距 */
+  position: relative;
+}
+
+/* ✅ 移除...按钮悬停样式 */
+
+.folder-name {
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ✅ 移除...按钮相关样式，已改为右键菜单 */
+
+/* 文档项样式 */
+.document-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  background: #fff;
+  border: 1px solid transparent;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* ✅ 拖拽时的样式优化 */
+.document-panel.dragging .document-item.sortable-item {
+  cursor: grabbing;
+}
+
+.document-panel.dragging .document-item.sortable-item:active {
+  transform: rotate(5deg);
+}
+
+/* 文件夹子项中的文档样式 */
+.folder-children .document-item {
+  margin-left: 20px;
+  border-left: 2px solid #f0f0f0;
+  padding-left: 12px;
+  background: #fafafa;
+}
+
+.folder-children .document-item:hover {
+  background: #f5f5f5;
+  border-left-color: #d9d9d9;
+}
+
+.document-item:hover {
+  background: #f0f8ff;
+  border-color: #e6f7ff;
+  transform: translateX(2px);
+}
+
+.document-item.active {
+  background: #e6f7ff;
+  border-color: #91d5ff;
+  box-shadow: 0 2px 4px rgba(24, 144, 255, 0.1);
+}
+
+.document-item.active:hover {
+  background: #bae7ff;
+}
+
+.document-item.active .document-title {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+/* 移除了选中状态样式，不再显示选择标记 */
+
+/* 优化点击反馈 */
+.document-item:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.folder-item:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* 展开/收起按钮样式优化 */
+.toggle-button {
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+.toggle-button:hover {
+  background: rgba(24, 144, 255, 0.1);
+  opacity: 1 !important;
+}
+
+/* 移除了选择框样式，改为点击选择 */
+
+/* 搜索结果样式 */
+.search-results {
+  flex: 1;
+  background: #fff;
+  overflow-y: auto;
+  border-top: 1px solid #e8e8e8;
+}
+
+.search-header {
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 13px;
+  color: #1f2937;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.search-empty {
+  padding: 0;
+}
+
+.search-section {
+  margin-bottom: 8px;
+}
+
+.search-section:last-child {
+  margin-bottom: 0;
+}
+
+.search-section-title {
+  padding: 8px 16px;
+  background: #f0f2f5;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f3f4;
+  transition: all 0.2s;
+}
+
+.search-item:hover {
+  background: #f8f9fa;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+/* 这些样式已在后面重新定义，删除重复规则 */
+
+.search-item-icon {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* 这些样式已在后面重新定义，删除重复规则 */
+
+/* 搜索关键词高亮 */
+.search-item-title mark {
+  background-color: #fff566;
+  padding: 1px 3px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* 树形组件自定义样式 */
+.document-panel-tree .ant-tree-treenode {
+  padding: 2px 0;
+}
+
+.document-panel-tree .ant-tree-node-content-wrapper {
+  padding: 0;
+  line-height: 32px;
+  height: auto;
+  min-height: 32px;
+}
+
+.document-panel-tree .ant-tree-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.document-panel-tree .ant-tree-iconEle {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+/* 右键菜单样式优化 */
+.ant-dropdown-menu {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ant-dropdown-menu-item {
+  font-size: 14px;
+}
+
+/* 编辑状态样式 */
+.folder-item .ant-input,
+.document-item .ant-input {
+  font-size: 14px;
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .document-panel {
+    width: 280px; /* 增加移动端宽度从240px到280px */
+  }
+
+  .document-panel-header {
+    padding: 10px 12px; /* 调整移动端padding */
+  }
+
+  .document-panel-search {
+    padding: 8px 12px;
+  }
+
+  .document-panel-controls {
+    padding: 6px 12px;
+  }
+
+  .control-actions {
+    gap: 6px;
+  }
+
+  .control-actions .ant-btn {
+    padding: 1px 4px;
+    font-size: 11px;
+  }
+
+  .header-actions .ant-btn {
+    padding: 0 4px; /* 进一步减少移动端按钮内边距 */
+    min-width: 26px; /* 减少移动端按钮最小宽度 */
+    height: 26px; /* 减少移动端按钮高度 */
+    font-size: 11px; /* 减小移动端字体大小 */
+  }
+
+  .header-actions {
+    gap: 1px; /* 进一步减少移动端按钮间距 */
+  }
+
+  .document-panel-header h3 {
+    font-size: 15px; /* 稍微减小移动端标题字体 */
+  }
+
+  .document-panel-toggle-button {
+    left: -2px;
+  }
+
+  .document-panel-toggle-button .ant-btn {
+    font-size: 12px;
+    padding: 2px 6px;
+    min-width: 28px;
+  }
+}
+
+/* 滚动条样式 */
+.document-panel-tree::-webkit-scrollbar {
+  width: 6px;
+}
+
+.document-panel-tree::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.document-panel-tree::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.document-panel-tree::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ✅ 服务器同步面板样式 */
+.document-panel-sync {
+  border-top: 1px solid #e8e8e8;
+  background: #fff;
+  margin-top: auto; /* 推到底部 */
+  margin-bottom: 8px; /* 添加底部间距，避免遮挡文字 */
+  border-radius: 0 0 6px 6px; /* 底部圆角 */
+}
+
+.document-panel-sync .server-sync-panel {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 12px;
+}
+
+.document-panel-sync .sync-header {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+}
+
+.document-panel-sync .action-group .ant-btn {
+  font-size: 11px;
+  height: 28px;
+  min-width: 100px;
+}
+
+/* 小屏幕下的服务器同步面板 */
+@media (max-width: 768px) {
+  .document-panel-sync .server-sync-panel {
+    padding: 8px;
+  }
+  
+  .document-panel-sync .action-group {
+    flex-direction: column;
+  }
+  
+  .document-panel-sync .action-group .ant-btn {
+    min-width: auto;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+}
+
+/* 搜索内容预览样式 */
+.search-document-container {
+  width: 100%;
+}
+
+.search-item-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 4px;
+}
+
+.search-item-content {
+  margin-top: 8px;
+  padding-left: 24px; /* 对齐图标位置 */
+  border-top: 1px solid #f0f0f0;
+  padding-top: 8px;
+}
+
+.search-snippet {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.search-snippet-label {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.search-snippet-text {
+  padding: 8px 10px;
+  background: #f8fafc;
+  border-radius: 4px;
+  border-left: 3px solid #e2e8f0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #4a5568;
+}
+
+.search-snippet-text mark {
+  background-color: #fef3c7;
+  color: #92400e;
+  padding: 1px 3px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.search-match-info {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.match-tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.match-tag.title-match {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.match-tag.content-match {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* 调整搜索项布局 */
+.document-search-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.document-search-item:last-child {
+  border-bottom: none;
+}
+
+.document-search-item:hover {
+  background: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+}
+
+.document-search-item:hover .search-snippet-text {
+  background: #e0f2fe;
+  border-left-color: #0284c7;
+}
+
+.search-item-title {
+  flex: 1;
+  font-size: 14px;
+  color: #1f2937;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.search-item-meta {
+  font-size: 11px;
+  color: #9ca3af;
+  flex-shrink: 0;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* 文件夹搜索项样式 */
+.folder-search-item:hover {
+  background: #fff7e6;
+  border-left: 4px solid #faad14;
+  padding-left: 12px;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .search-item-content {
+    padding-left: 16px;
+  }
+  
+  .search-item-header {
+    flex-wrap: wrap;
+  }
+  
+  .search-item-meta {
+    margin-top: 4px;
+    margin-left: 0;
+  }
+  
+  .search-snippet-text {
+    font-size: 11px;
+  }
+}
+
+/* ✅ 拖拽排序样式 */
+.sortable-item {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+  cursor: grab;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+/* ✅ 拖拽项悬停效果增强 */
+.sortable-item:hover {
+  background: #f8f9fa !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ✅ 拖拽提示图标 */
+.sortable-item:hover::after {
+  content: '⋮⋮';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+/* 优化拖拽和点击交互 */
+.sortable-item .folder-header {
+  position: relative;
+  cursor: default; /* 默认不显示拖拽光标 */
+}
+
+/* 拖拽区域设置为左边缘 */
+.sortable-item .folder-header:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px; /* 缩小拖拽区域到6px */
+  cursor: grab;
+  z-index: 1;
+}
+
+.sortable-item .folder-header:hover:before {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* 确保点击区域优先级更高 */
+.sortable-item .folder-header .item-content {
+  position: relative;
+  z-index: 2; /* 确保点击区域在拖拽区域之上 */
+  pointer-events: auto; /* 确保点击事件正常工作 */
+}
+
+.sortable-item:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 12px;
+  background: transparent;
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.sortable-item:hover:before {
+  background: #d1d5db;
+}
+
+/* ✅ 拖拽开始时的样式 */
+
+.sortable-item:active,
+.sortable-item.sortable-chosen {
+  cursor: grabbing !important;
+  background: #e6f7ff !important;
+  border-color: #3b82f6 !important;
+  transform: scale(0.98) !important;
+}
+
+.sortable-helper {
+  z-index: 10000 !important;
+  /* ✅ 增强的阴影和缩放效果，让拖拽更有立体感 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.15) !important;
+  background: #fff !important;
+  border: 2px solid #3b82f6 !important;
+  border-radius: 6px !important;
+  /* ✅ 组合变换：旋转+缩放，让拖拽更自然 */
+  transform: rotate(3deg) scale(1.05) !important;
+  opacity: 1 !important;
+  cursor: grabbing !important;
+  /* ✅ 移除过渡动画，让拖拽跟随更即时 */
+  transition: none !important;
+  /* ✅ 添加脉动动画效果 */
+  animation: dragFloat 0.8s ease-in-out infinite alternate !important;
+  /* ✅ 确保内容可见 */
+  width: 250px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* ✅ 强制显示内容 */
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  line-height: 1.4 !important;
+  box-sizing: border-box !important;
+}
+
+/* ✅ 自定义helper内容样式 */
+.sortable-helper .helper-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+}
+
+.sortable-helper .helper-icon {
+  font-size: 14px !important;
+  opacity: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.sortable-helper .helper-text {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  flex: 1 !important;
+  line-height: 1.2 !important;
+}
+
+/* ✅ 清理：由于使用自定义helper，不再需要这些样式 */
+
+/* ✅ 增强的拖拽占位符样式 */
+.sortable-ghost {
+  opacity: 0.5 !important;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%) !important;
+  border: 2px dashed #3b82f6 !important;
+  border-radius: 6px !important;
+  transform: scale(0.98) !important;
+  animation: ghostPulse 1.2s ease-in-out infinite alternate !important;
+}
+
+/* ✅ 拖拽时的全局样式 */
+.document-panel.dragging {
+  user-select: none;
+  /* ✅ 拖拽时禁用其他动画，提高性能 */
+  * {
+    transition: none !important;
+  }
+}
+
+.document-panel.dragging * {
+  cursor: grabbing !important;
+}
+
+/* ✅ 拖拽时的容器样式 */
+.document-panel.dragging .sortable-documents-list,
+.document-panel.dragging .sortable-folders-list {
+  background: rgba(59, 130, 246, 0.02);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/* 可排序列表容器 */
+.sortable-documents-list,
+.sortable-folders-list {
+  min-height: 20px;
+}
+
+.folder-content {
+  margin-left: 0;
+  display: block; /* 确保垂直布局 */
+}
+
+.folder-children {
+  padding-left: 20px; /* 保持缩进 */
+  padding-top: 4px; /* 减少顶部间距 */
+  padding-bottom: 2px; /* 减少底部间距 */
+  margin-left: 10px;
+  margin-top: 2px; /* 减少与父级的间距 */
+  margin-bottom: 2px; /* 减少底部间距 */
+  display: block; /* 确保垂直布局 */
+}
+
+/* 确保文件夹和文档分组正确显示 */
+.folders-section,
+.documents-section {
+  display: block; /* 垂直布局 */
+  width: 100%;
+}
+
+.folders-section {
+  margin-bottom: 6px; /* 增加文件夹和文档之间的间距 */
+}
+
+/* 在子文件夹中的嵌套文件夹样式 */
+.folder-children .folder-item {
+  margin-bottom: 2px; /* 减少子文件夹间距，与根级保持一致 */
+}
+
+.folder-children .folder-header {
+  border-radius: 4px;
+}
+
+.folder-children .folder-header:hover {
+  background: #f3f4f6; /* 与根级文件夹相同的悬停背景 */
+}
+
+.folder-children .folder-item.expanded .folder-header {
+  background: #f8fafc; /* 与根级展开文件夹相同的背景 */
+  border-left: 2px solid #e5e7eb; /* 与根级展开文件夹相同的边框 */
+}
+
+/* 文件夹头部样式 */
+.folder-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 2px; /* 与子内容的间距 */
+  position: relative;
+  min-height: 32px; /* 与文档项统一高度 */
+}
+
+.folder-header:hover {
+  background: #f3f4f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ✅ 移除文件夹头部...按钮悬停样式 */
+
+/* 展开状态的文件夹有不同的样式 */
+.folder-item .folder-header {
+  position: relative;
+}
+
+.folder-item.expanded .folder-header {
+  font-weight: 500;
+  background: #f8fafc; /* 简洁的浅灰背景 */
+  border-left: 2px solid #e5e7eb; /* 简洁的灰色边框 */
+}
+
+.folder-header .item-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+  padding: 2px 4px; /* 增加点击区域 */
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.folder-header .item-content:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* 悬停时的轻微背景变化 */
+}
+
+/* 文档项内容区域 */
+.document-item .item-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+/* ✅ 删除旧的拖拽反馈样式，新样式已在上面定义 */
+
+/* ✅ 增强的拖拽占位符 */
+.sortable-placeholder {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  opacity: 0.3;
+  border-radius: 6px;
+  margin: 2px 0;
+  height: 32px;
+  border: 2px dashed rgba(59, 130, 246, 0.5);
+  animation: placeholderPulse 1s ease-in-out infinite alternate;
+}
+
+/* ✅ 占位符脉动动画 */
+@keyframes placeholderPulse {
+  from {
+    opacity: 0.3;
+    transform: scaleY(0.95);
+  }
+  to {
+    opacity: 0.5;
+    transform: scaleY(1);
+  }
+}
+
+/* ✅ 拖拽动画定义 */
+@keyframes dragFloat {
+  from {
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25), 0 5px 15px rgba(59, 130, 246, 0.15);
+    transform: rotate(3deg) scale(1.05) translateY(0px);
+  }
+  to {
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35), 0 8px 20px rgba(59, 130, 246, 0.25);
+    transform: rotate(3deg) scale(1.05) translateY(-2px);
+  }
+}
+
+/* ✅ 占位符脉动动画 */
+@keyframes ghostPulse {
+  from {
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+    opacity: 0.5;
+  }
+  to {
+    border-color: #60a5fa;
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    opacity: 0.7;
+  }
+}
+
+/* 响应式拖拽样式 */
+@media (max-width: 768px) {
+  .sortable-item {
+    cursor: grab;
+  }
+  
+  .sortable-helper {
+    /* ✅ 移动端拖拽效果调整 */
+    transform: rotate(2deg) scale(1.03) !important;
+    animation: dragFloat 1s ease-in-out infinite alternate !important;
+  }
+}
+
+/* 修复原有样式以适配新结构 */
+.document-panel-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  background: #fafafa;
+}
+
+.document-panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.document-panel-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.document-panel-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.document-panel-content::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* 文档面板底部样式 - 优化版 */
+.document-panel-footer {
+  margin-top: auto;
+  padding: 0;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.document-panel-footer .ant-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  border-radius: 0;
+  color: #8a8a8a;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  height: auto;
+  min-height: 42px;
+}
+
+/* 移除所有装饰性效果，保持简洁 */
+.document-panel-footer .ant-btn::before {
+  display: none;
+}
+
+.document-panel-footer .ant-btn:hover {
+  background: rgba(0, 0, 0, 0.02);
+  color: #595959;
+  transform: none;
+  box-shadow: none;
+  border-color: #f0f0f0;
+}
+
+.document-panel-footer .ant-btn:active {
+  transform: none;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.document-panel-footer .ant-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 确保文档面板内容区域有足够的空间 */
+.document-panel-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 120px); /* 减去头部和搜索区域的高度 */
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+/* 优化滚动条样式 */
+.document-panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.document-panel-content::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 3px;
+}
+
+.document-panel-content::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+
+.document-panel-content::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* 移除垃圾桶按钮的图标特殊样式 */
+.document-panel-footer .ant-btn .anticon {
+  display: none; /* 如果使用了antd图标，隐藏它 */
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .document-panel-footer {
+    padding: 0;
+  }
+  
+  .document-panel-footer .ant-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .document-panel-footer .ant-btn {
+    padding: 9px 12px;
+    font-size: 11px;
+    min-height: 38px;
+  }
+}
+
+/* ✅ 面板拖拽调整功能 */
+.panel-resize-handle {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+  z-index: 1000;
+  transition: background-color 0.2s ease;
+}
+
+.panel-resize-handle:hover {
+  background: rgba(24, 144, 255, 0.2);
+}
+
+.panel-resize-handle.dragging {
+  background: rgba(24, 144, 255, 0.4);
+}
+
+/* 拖拽时的用户选择禁用 */
+.panel-resizing {
+  user-select: none;
+  cursor: col-resize !important;
+}
+
+.panel-resizing * {
+  cursor: col-resize !important;
+}
+
+/* ✅ 就地重命名输入框样式 */
+.document-item .ant-input,
+.folder-item .ant-input {
+  background: #fff;
+  border: 1px solid #1890ff !important;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  font-size: 14px;
+  padding: 4px 8px;
+  margin: 0;
+  flex: 1;
+}
+
+.document-item .ant-input:focus,
+.folder-item .ant-input:focus {
+  border: 1px solid #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+  outline: none !important;
+}
+
+/* ✅ 重命名状态下的样式调整 */
+.document-item.renaming,
+.folder-item.renaming {
+  background: rgba(24, 144, 255, 0.05);
+  border: 1px solid rgba(24, 144, 255, 0.3);
+  border-radius: 4px;
+}
+
+/* ✅ 移除重命名状态下...按钮隐藏样式 */
+
+/* ✅ 确保输入框在重命名时获得焦点高亮 */
+.document-item .ant-input,
+.folder-header .ant-input {
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.document-item .ant-input:hover,
+.folder-header .ant-input:hover {
+  border-color: #40a9ff;
+}
+
+.document-item .ant-input:focus,
+.folder-header .ant-input:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.document-title {
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

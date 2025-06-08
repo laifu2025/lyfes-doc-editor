@@ -1,0 +1,156 @@
+/* ✅ 用户登录组件样式 */
+.user-login {
+    display: flex;
+    align-items: center;
+}
+
+/* ✅ 用户信息显示区域 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f0f2f5;
+    border: 1px solid #d9d9d9;
+}
+
+.user-info:hover {
+    background: #e6f7ff;
+    border-color: #91d5ff;
+}
+
+.username {
+    font-size: 14px;
+    color: #1f2937;
+    font-weight: 500;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ✅ 登录按钮样式 */
+.user-login .ant-btn {
+    height: 32px;
+    padding: 0 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ✅ 用户菜单样式 */
+.ant-dropdown-menu {
+    min-width: 180px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ant-dropdown-menu-item[disabled] {
+    background: #fafafa !important;
+    cursor: default !important;
+}
+
+/* ✅ 登录弹窗样式 */
+.ant-modal-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 24px;
+}
+
+.ant-modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.ant-modal-body {
+    padding: 0 24px 24px;
+}
+
+.ant-modal-footer {
+    border-top: 1px solid #f0f0f0;
+    padding: 10px 24px;
+}
+
+/* ✅ 输入框样式 */
+.ant-input-affix-wrapper {
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    transition: all 0.3s ease;
+}
+
+.ant-input-affix-wrapper:hover {
+    border-color: #40a9ff;
+}
+
+.ant-input-affix-wrapper-focused {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.ant-input {
+    font-size: 14px;
+}
+
+.ant-input-prefix {
+    color: #8c8c8c;
+}
+
+/* ✅ 头像样式 */
+.ant-avatar {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* ✅ 响应式设计 */
+@media (max-width: 768px) {
+    .user-info {
+        padding: 2px 6px;
+        gap: 6px;
+    }
+    
+    .username {
+        max-width: 80px;
+        font-size: 13px;
+    }
+    
+    .user-login .ant-btn {
+        height: 28px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+    
+    .ant-modal {
+        margin: 16px;
+        width: calc(100% - 32px) !important;
+        max-width: 400px;
+    }
+}
+
+/* ✅ 动画效果 */
+.ant-dropdown-enter {
+    opacity: 0;
+    transform: scaleY(0.8);
+}
+
+.ant-dropdown-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: all 0.3s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* ✅ 移除弹窗移动动画，直接居中显示 */
+.ant-modal {
+    transform: translateY(0);
+}
+
+.ant-modal.ant-modal-centered {
+    transform: translateY(0);
+} 
