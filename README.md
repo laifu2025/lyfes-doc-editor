@@ -537,8 +537,6 @@ chore: 构建工具       # 🔧 工具变更
 |------|------|------|
 | **[Lyfe's Cursor Rules](https://github.com/laifu2025/lyfes-cursor-rules)** | 专为中文开发者设计的 Cursor AI 编程规则集合 | ✅ 已发布 |
 | **Lyfe's Doc Editor** | 智能 Markdown 编辑器（本项目） | ✅ 已发布 |
-| **Lyfe's Code Assistant** | AI ��码助手工具 | 🚧 开发中 |
-| **Lyfe's API Tester** | API 接口测试工具 | 📋 计划中 |
 
 <div align="center">
 
