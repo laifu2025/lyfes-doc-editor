@@ -1,0 +1,1163 @@
+.theme-toggle {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+.theme-toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #f0f8ff;
+    border: 1px solid #e8e8e8;
+    color: #666;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.theme-toggle-button:hover {
+    background: #1890ff;
+    border-color: #1890ff;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.theme-toggle-button:active {
+    transform: scale(1.02);
+}
+
+.theme-toggle-button.dark {
+    background: #2f2f2f;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+.theme-toggle-button.dark:hover {
+    background: #404040;
+    border-color: #595959;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(64, 64, 64, 0.3);
+}
+
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-label {
+    display: none;
+}
+
+/* ✅ 移动端响应式设计 */
+@media (max-width: 768px) {
+    .theme-toggle-button {
+        width: 28px;
+        height: 28px;
+    }
+
+    .theme-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* 暗色主题下的全局样式 */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-app {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-app-body {
+    background-color: #1a1a1a;
+}
+
+body.dark-theme .main-content-area {
+    background: #1a1a1a;
+}
+
+body.dark-theme .nice-text-container,
+body.dark-theme .nice-text-container-immersive {
+    background: #1a1a1a;
+}
+
+/* 文档管理面板暗色主题 - 全面覆盖 */
+body.dark-theme .document-panel {
+    background: #252525 !important;
+    border-right-color: #3a3a3a !important;
+}
+
+body.dark-theme .document-panel-header {
+    background: #252525 !important;
+    border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-theme .document-panel-header h3 {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .document-panel-controls {
+    background: #252525 !important;
+    border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-theme .document-panel-search {
+    background: #252525 !important;
+    border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-theme .document-panel-tree {
+    background: #252525 !important;
+}
+
+body.dark-theme .document-panel-content {
+    background: #252525 !important;
+}
+
+body.dark-theme .nice-wx-box {
+    background: #252525;
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-marked-text {
+    background: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* CodeMirror 暗色主题 */
+body.dark-theme .CodeMirror {
+    background: #1e1e1e !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .CodeMirror-gutters {
+    background: #252525 !important;
+    border-right-color: #3a3a3a !important;
+}
+
+body.dark-theme .CodeMirror-linenumber {
+    color: #858585 !important;
+}
+
+body.dark-theme .CodeMirror-cursor {
+    border-left-color: #f0f0f0 !important;
+}
+
+body.dark-theme .CodeMirror-selected {
+    background: #264f78 !important;
+}
+
+body.dark-theme .CodeMirror-activeline-background {
+    background: #2a2a2a !important;
+}
+
+/* 导航栏暗色主题 */
+body.dark-theme .nice-navbar {
+    background: #252525;
+    border-bottom-color: #3a3a3a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .nice-toolbar {
+    background: #252525;
+    border-top-color: #3a3a3a;
+}
+
+body.dark-theme .nice-left-nav,
+body.dark-theme .nice-right-nav {
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-title {
+    color: #f0f0f0;
+}
+
+/* === 用户登录组件暗色主题 === */
+body.dark-theme .user-login .ant-btn {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .user-login .ant-btn:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+body.dark-theme .user-login .ant-btn:focus {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    box-shadow: 0 0 0 2px rgba(64, 169, 255, 0.2) !important;
+}
+
+body.dark-theme .user-info {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .user-info:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+body.dark-theme .user-info:hover .username {
+    color: white !important;
+}
+
+body.dark-theme .username {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-btn-login {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-btn-login:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    transform: scale(1.08);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+body.dark-theme .nice-btn-login:focus {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    box-shadow: 0 0 0 2px rgba(64, 169, 255, 0.2) !important;
+}
+
+/* Antd 组件暗色主题覆盖 */
+body.dark-theme .ant-btn {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-btn:hover {
+    background: #404040;
+    border-color: #595959;
+    color: #fff;
+}
+
+body.dark-theme .ant-input {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-select-selector {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .ant-dropdown {
+    background: #252525;
+}
+
+body.dark-theme .ant-dropdown-menu {
+    background: #252525;
+}
+
+body.dark-theme .ant-dropdown-menu-item {
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-dropdown-menu-item:hover {
+    background: #3a3a3a;
+    color: #40a9ff;
+}
+
+/* 用户下拉菜单暗色主题 */
+body.dark-theme .ant-dropdown-menu-item[disabled] {
+    background: #2a2a2a !important;
+    color: #666 !important;
+}
+
+body.dark-theme .user-info .anticon {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .user-info:hover .anticon {
+    color: white !important;
+}
+
+/* === 左侧导航栏暗色主题 === */
+body.dark-theme .left-navbar,
+body.dark-theme .left-navbar:hover,
+body.dark-theme .left-navbar.dragging,
+body.dark-theme .left-navbar.auto-hide,
+body.dark-theme .left-navbar.auto-hide:hover,
+body.dark-theme div.left-navbar,
+body.dark-theme [class*="left-navbar"] {
+    background: #2a2a2a !important;
+    background-color: #2a2a2a !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .left-navbar.vertical {
+    background: #2a2a2a !important;
+    border: 1px solid #3a3a3a !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-theme .left-navbar.horizontal {
+    background: #2a2a2a !important;
+    border: 1px solid #3a3a3a !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-theme .left-navbar:hover {
+    background: #2a2a2a !important;
+    border-color: #40a9ff !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-theme .left-navbar.dragging {
+    background: #2a2a2a !important;
+    border-color: #40a9ff !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 左侧导航栏内部元素暗色主题 */
+body.dark-theme .left-navbar-header,
+body.dark-theme .left-navbar-footer {
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .nav-button {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nav-button:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    transform: scale(1.08);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+body.dark-theme .nav-button:focus {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    box-shadow: 0 0 0 2px rgba(64, 169, 255, 0.2) !important;
+}
+
+body.dark-theme .left-navbar-header .nav-button {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .left-navbar-header .nav-button:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+}
+
+/* 拖拽指示器暗色主题 */
+body.dark-theme .drag-dots span {
+    background: #666 !important;
+}
+
+body.dark-theme .left-navbar:hover .drag-dots span {
+    background: #40a9ff !important;
+}
+
+body.dark-theme .left-navbar.dragging .drag-dots span {
+    background: #40a9ff !important;
+}
+
+/* 动态边框效果暗色主题 */
+body.dark-theme .left-navbar::before {
+    background: linear-gradient(45deg, transparent, #40a9ff, transparent) !important;
+}
+
+body.dark-theme .left-navbar:hover::before {
+    opacity: 0.15 !important;
+}
+
+body.dark-theme .left-navbar.dragging::before {
+    opacity: 0.25 !important;
+}
+
+/* 菜单组件暗色主题 */
+body.dark-theme .nice-menu-link {
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-menu-link:hover {
+    color: #40a9ff;
+    background-color: #2a2a2a;
+}
+
+body.dark-theme .nice-menu-link:focus {
+    color: #40a9ff;
+    background: #2a2a2a;
+}
+
+body.dark-theme .nice-overlay ul {
+    background: #252525;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .nice-overlay ul .ant-dropdown-menu-item {
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-menu-shortcut {
+    color: #888;
+}
+
+/* 工具栏按钮暗色主题 */
+body.dark-theme .nice-btn-tool {
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-btn-tool:hover {
+    background: #3a3a3a;
+    color: #40a9ff;
+}
+
+body.dark-theme .nice-btn-tool svg {
+    fill: #f0f0f0;
+}
+
+body.dark-theme .nice-btn-tool:hover svg {
+    fill: #40a9ff;
+}
+
+/* 文档管理面板按钮暗色主题 */
+body.dark-theme .document-panel .ant-btn {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme .document-panel .ant-btn:hover {
+    background: #404040;
+    border-color: #595959;
+    color: #40a9ff;
+}
+
+body.dark-theme .document-panel .ant-btn-text {
+    background: transparent;
+    border: none;
+    color: #f0f0f0;
+}
+
+body.dark-theme .document-panel .ant-btn-text:hover {
+    background: #3a3a3a;
+    color: #40a9ff;
+}
+
+/* 文档管理面板内的具体元素暗色主题 */
+body.dark-theme .document-item {
+    background: transparent !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .document-item:hover {
+    background: #3a3a3a !important;
+}
+
+body.dark-theme .document-item.active {
+    background: #2a2a2a !important;
+    color: #40a9ff !important;
+}
+
+body.dark-theme .folder-item {
+    background: transparent !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .folder-item:hover {
+    background: #3a3a3a !important;
+}
+
+body.dark-theme .folder-header {
+    background: transparent !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .folder-header:hover {
+    background: #3a3a3a !important;
+}
+
+body.dark-theme .document-title {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .folder-name {
+    color: #f0f0f0 !important;
+}
+
+/* 搜索结果暗色主题 */
+body.dark-theme .search-results {
+    background: #252525 !important;
+}
+
+body.dark-theme .search-item {
+    background: transparent !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .search-item:hover {
+    background: #3a3a3a !important;
+}
+
+body.dark-theme .search-item-title {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .search-snippet-text {
+    color: #d0d0d0 !important;
+}
+
+body.dark-theme .search-section-title {
+    color: #f0f0f0 !important;
+}
+
+/* 文档管理面板底部区域 */
+body.dark-theme .document-panel-footer {
+    background: #252525 !important;
+    border-top-color: #3a3a3a !important;
+}
+
+/* 头部操作按钮区域 */
+body.dark-theme .header-actions .ant-btn {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .header-actions .ant-btn:hover {
+    background: #404040 !important;
+    border-color: #40a9ff !important;
+    color: #40a9ff !important;
+}
+
+body.dark-theme .control-actions .ant-btn {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .control-actions .ant-btn:hover {
+    background: #404040 !important;
+    border-color: #40a9ff !important;
+    color: #40a9ff !important;
+}
+
+/* 搜索框暗色主题 */
+body.dark-theme .document-panel .ant-input {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme .document-panel .ant-input:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(64, 169, 255, 0.2);
+}
+
+body.dark-theme .document-panel .ant-input::placeholder {
+    color: #888;
+}
+
+/* Tooltip 暗色主题 */
+body.dark-theme .ant-tooltip-inner {
+    background: #3a3a3a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-tooltip-arrow::before {
+    background: #3a3a3a;
+}
+
+body.dark-theme .import-file-tooltip .ant-tooltip-inner {
+    background: #3a3a3a;
+    color: #f0f0f0;
+    border-color: #434343;
+}
+
+body.dark-theme .import-file-tooltip .ant-tooltip-arrow {
+    border-right-color: #434343;
+}
+
+body.dark-theme .import-file-tooltip .ant-tooltip-arrow::before {
+    border-right-color: #3a3a3a;
+}
+
+/* 图标按钮暗色主题 */
+body.dark-theme .ant-btn-icon-only {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-btn-icon-only:hover {
+    background: #404040;
+    border-color: #595959;
+    color: #40a9ff;
+}
+
+/* 分割线暗色主题 */
+body.dark-theme .ant-divider {
+    border-color: #434343;
+}
+
+/* 右侧面板暗色主题 */
+body.dark-theme .nice-right-nav a {
+    color: #f0f0f0;
+}
+
+body.dark-theme .nice-right-nav a:hover {
+    color: #40a9ff;
+}
+
+/* 顶部工具栏区域暗色主题 */
+body.dark-theme .nice-toolbar {
+    background: #2a2a2a;
+    border-top-color: #3a3a3a;
+}
+
+/* 右侧按钮区域暗色主题 */
+body.dark-theme .nice-right-nav button {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-right-nav button:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+/* 主题切换按钮暗色适配 */
+body.dark-theme .theme-toggle-button {
+    background: transparent !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .theme-toggle-button:hover {
+    background: transparent !important;
+    border-color: #40a9ff !important;
+    color: #40a9ff !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+/* 回收站按钮暗色适配 */
+body.dark-theme .trash-btn {
+    background: #3a3a3a !important;
+    border-color: #434343 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .trash-btn:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.3) !important;
+}
+
+/* 更具体的按钮样式 */
+body.dark-theme button,
+body.dark-theme .ant-btn-default {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme button:hover,
+body.dark-theme .ant-btn-default:hover {
+    background: #404040;
+    border-color: #595959;
+    color: #40a9ff;
+}
+
+body.dark-theme button:focus,
+body.dark-theme .ant-btn-default:focus {
+    background: #404040;
+    border-color: #40a9ff;
+    color: #40a9ff;
+}
+
+/* SVG 图标暗色主题 */
+body.dark-theme svg {
+    fill: #f0f0f0;
+}
+
+body.dark-theme button:hover svg,
+body.dark-theme .ant-btn:hover svg {
+    fill: #40a9ff;
+}
+
+/* 链接暗色主题 */
+body.dark-theme a {
+    color: #40a9ff;
+}
+
+body.dark-theme a:hover {
+    color: #69c0ff;
+}
+
+/* 特殊按钮样式覆盖 */
+body.dark-theme .ant-btn-primary {
+    background: #1890ff;
+    border-color: #1890ff;
+    color: #fff;
+}
+
+body.dark-theme .ant-btn-primary:hover {
+    background: #40a9ff;
+    border-color: #40a9ff;
+    color: #fff;
+}
+
+/* 对话框和弹出层暗色主题 */
+body.dark-theme .ant-modal-content {
+    background: #252525;
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-modal-header {
+    background: #252525;
+    border-bottom-color: #3a3a3a;
+}
+
+body.dark-theme .ant-modal-title {
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-modal-footer {
+    background: #252525;
+    border-top-color: #3a3a3a;
+}
+
+body.dark-theme .ant-modal-close-x {
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-modal-close-x:hover {
+    color: #40a9ff;
+}
+
+/* 表单元素暗色主题 */
+body.dark-theme .ant-form-item-label>label {
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-textarea {
+    background: #3a3a3a;
+    border-color: #434343;
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-textarea:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(64, 169, 255, 0.2);
+}
+
+/* 选择器暗色主题 */
+body.dark-theme .ant-select-dropdown {
+    background: #252525;
+}
+
+body.dark-theme .ant-select-item {
+    color: #f0f0f0;
+}
+
+body.dark-theme .ant-select-item-option-selected {
+    background: #3a3a3a;
+    color: #40a9ff;
+}
+
+body.dark-theme .ant-select-item-option-active {
+    background: #2a2a2a;
+}
+
+/* === 底部状态栏暗色主题 === */
+body.dark-theme .nice-footer-container {
+    background: #2a2a2a !important;
+    border-top: 1px solid #3a3a3a !important;
+    color: #d0d0d0 !important;
+}
+
+body.dark-theme .nice-footer-container p {
+    color: #d0d0d0 !important;
+    background: transparent !important;
+}
+
+/* === 编辑器底部状态栏暗色主题 === */
+body.dark-theme .nice-editor-footer-container {
+    background: #2a2a2a !important;
+    border-top: 1px solid #3a3a3a !important;
+    color: #d0d0d0 !important;
+}
+
+body.dark-theme .nice-editor-footer-container p {
+    color: #d0d0d0 !important;
+}
+
+/* 沉浸式模式下的编辑器底部状态栏暗色主题 */
+body.dark-theme .nice-text-container-immersive .nice-editor-footer-container {
+    background: rgba(42, 42, 42, 0.95) !important;
+    border-top: 1px solid #3a3a3a !important;
+    backdrop-filter: blur(5px);
+}
+
+/* === 回收站按钮暗色主题 === */
+body.dark-theme .document-panel-footer {
+    background: #252525 !important;
+    border-top: 1px solid #3a3a3a !important;
+}
+
+body.dark-theme .document-panel-footer .ant-btn {
+    background: #3a3a3a !important;
+    color: #f0f0f0 !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .document-panel-footer .ant-btn:hover {
+    background: #4a4a4a !important;
+    color: #40a9ff !important;
+    border-color: #40a9ff !important;
+}
+
+body.dark-theme .document-panel-footer .ant-btn-text {
+    background: transparent !important;
+    color: #d0d0d0 !important;
+}
+
+body.dark-theme .document-panel-footer .ant-btn-text:hover {
+    background: #3a3a3a !important;
+    color: #40a9ff !important;
+}
+
+/* === 预览模式暗色主题 === */
+body.dark-theme .nice-wx-box {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-marked-text {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 预览模式切换按钮 */
+body.dark-theme .nice-btn-previewtype {
+    background: #3a3a3a !important;
+    color: #f0f0f0 !important;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+body.dark-theme .nice-btn-previewtype:hover {
+    background: #4a4a4a !important;
+    color: #40a9ff !important;
+}
+
+body.dark-theme .nice-btn-previewtype-icon {
+    fill: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-btn-previewtype:hover .nice-btn-previewtype-icon {
+    fill: #40a9ff !important;
+}
+
+/* 预览区域内容暗色主题 */
+body.dark-theme .nice-wx-box section {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-wx-box #nice {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-wx-box #nice p {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-wx-box #nice h1,
+body.dark-theme .nice-wx-box #nice h2,
+body.dark-theme .nice-wx-box #nice h3,
+body.dark-theme .nice-wx-box #nice h4,
+body.dark-theme .nice-wx-box #nice h5,
+body.dark-theme .nice-wx-box #nice h6 {
+    color: #40a9ff !important;
+}
+
+body.dark-theme .nice-wx-box #nice strong {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .nice-wx-box #nice table {
+    background: #2a2a2a !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .nice-wx-box #nice table tr {
+    background: #2a2a2a !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .nice-wx-box #nice table tr:nth-child(2n) {
+    background: #252525 !important;
+}
+
+body.dark-theme .nice-wx-box #nice table th,
+body.dark-theme .nice-wx-box #nice table td {
+    background: inherit !important;
+    color: #f0f0f0 !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .nice-wx-box #nice table th {
+    background: #1a1a1a !important;
+}
+
+body.dark-theme .nice-wx-box #nice blockquote {
+    background: #2a2a2a !important;
+    border-left-color: #40a9ff !important;
+    color: #d0d0d0 !important;
+}
+
+body.dark-theme .nice-wx-box #nice blockquote p {
+    color: #d0d0d0 !important;
+}
+
+body.dark-theme .nice-wx-box #nice code {
+    background: #3a3a3a !important;
+    color: #40a9ff !important;
+}
+
+body.dark-theme .nice-wx-box #nice pre {
+    background: #2a2a2a !important;
+}
+
+body.dark-theme .nice-wx-box #nice pre code {
+    background: #2a2a2a !important;
+    color: #f0f0f0 !important;
+}
+
+/* === 回收站页面暗色主题 === */
+/* 回收站页面整体容器 */
+body.dark-theme .trash-container,
+body.dark-theme .trash-page,
+body.dark-theme .recycle-bin,
+body.dark-theme .delete-container {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 回收站页面主要内容区域 */
+body.dark-theme .trash-content,
+body.dark-theme .empty-content,
+body.dark-theme .no-content-container {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 回收站页面的白色背景覆盖 */
+body.dark-theme * {
+    /* 针对所有可能的白色背景元素 */
+}
+
+/* 回收站页面标题 */
+body.dark-theme .trash-title,
+body.dark-theme h1:contains("回收站"),
+body.dark-theme h2:contains("回收站"),
+body.dark-theme h3:contains("回收站") {
+    color: #f0f0f0 !important;
+    background: transparent !important;
+}
+
+/* 回收站页面按钮 */
+body.dark-theme .trash-button,
+body.dark-theme .refresh-button {
+    background: #3a3a3a !important;
+    color: #f0f0f0 !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme .trash-button:hover,
+body.dark-theme .refresh-button:hover {
+    background: #4a4a4a !important;
+    color: #40a9ff !important;
+    border-color: #40a9ff !important;
+}
+
+/* 回收站空状态文本 */
+body.dark-theme .empty-text,
+body.dark-theme .no-content-text {
+    color: #d0d0d0 !important;
+    background: transparent !important;
+}
+
+/* 针对可能的白色div */
+body.dark-theme div[style*="background: white"],
+body.dark-theme div[style*="background: #fff"],
+body.dark-theme div[style*="background: #ffffff"],
+body.dark-theme div[style*="background-color: white"],
+body.dark-theme div[style*="background-color: #fff"],
+body.dark-theme div[style*="background-color: #ffffff"] {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 通用的白色背景覆盖 - 针对回收站页面 */
+body.dark-theme [style*="background: rgb(255, 255, 255)"],
+body.dark-theme [style*="background-color: rgb(255, 255, 255)"] {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 回收站页面布局容器 */
+body.dark-theme .main-layout,
+body.dark-theme .page-layout,
+body.dark-theme .content-layout {
+    background: #252525 !important;
+}
+
+/* 回收站页面侧边栏 */
+body.dark-theme .sidebar-content,
+body.dark-theme .left-panel,
+body.dark-theme .side-content {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 特殊处理：强制覆盖所有白色背景 */
+body.dark-theme *[style] {
+    /* 这会通过JavaScript动态处理 */
+}
+
+/* 超强力覆盖：针对所有可能的白色背景 */
+body.dark-theme>* {
+    background: #1a1a1a !important;
+}
+
+body.dark-theme div,
+body.dark-theme section,
+body.dark-theme article,
+body.dark-theme main {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 针对可能使用内联样式的元素 */
+body.dark-theme [style*="rgb(255, 255, 255)"] {
+    background: #252525 !important;
+    color: #f0f0f0 !important;
+}
+
+/* 确保所有文本都是浅色 */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme div {
+    color: #f0f0f0 !important;
+}
+
+/* 确保按钮正确显示 */
+body.dark-theme button {
+    background: #3a3a3a !important;
+    color: #f0f0f0 !important;
+    border-color: #3a3a3a !important;
+}
+
+body.dark-theme button:hover {
+    background: #4a4a4a !important;
+    color: #40a9ff !important;
+}
+
+/* ===== CSS编辑器暗色主题优化 ===== */
+/* 确保CSS编辑器在暗色模式下正确显示 */
+body.dark-theme #nice-style-editor {
+    background: #1e1e1e !important;
+    border-left: 1px solid #3a3a3a !important;
+}
+
+body.dark-theme #nice-style-editor .CodeMirror {
+    background: #1e1e1e !important;
+    color: #f0f0f0 !important;
+    font-size: 14px !important;
+    min-height: 400px !important;
+}
+
+body.dark-theme #nice-style-editor .CodeMirror-lines {
+    padding: 20px !important;
+}
+
+body.dark-theme #nice-style-editor .CodeMirror-line {
+    background: transparent !important;
+}
+
+/* 暗色模式下CSS编辑器占位符改善 */
+body.dark-theme .cm-s-style-mirror .CodeMirror-placeholder {
+    color: #858585 !important;
+}
+
+/* CSS编辑器滚动条优化 */
+body.dark-theme #nice-style-editor .CodeMirror-scrollbar-filler {
+    background: #1e1e1e !important;
+}
+
+body.dark-theme #nice-style-editor .CodeMirror-gutter-filler {
+    background: #1e1e1e !important;
+}
+
+/* 确保CSS编辑器容器可见性 */
+body.dark-theme .nice-style-editing {
+    background: #1e1e1e !important;
+    border-left: 1px solid #3a3a3a !important;
+    min-height: 500px !important;
+}
+
+/* CSS编辑器内容区域优化 */
+body.dark-theme .nice-style-editing .CodeMirror-scroll {
+    background: #1e1e1e !important;
+    min-height: 400px !important;
+}

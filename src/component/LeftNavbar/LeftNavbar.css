@@ -1,0 +1,470 @@
+/* 强制白色主题 - 最高优先级覆盖 */
+.left-navbar,
+.left-navbar:hover,
+.left-navbar.dragging,
+.left-navbar.auto-hide,
+.left-navbar.auto-hide:hover {
+  background: white !important;
+  background-color: white !important;
+  border-color: #e8e8e8 !important;
+}
+
+/* 额外的强制覆盖 */
+div.left-navbar {
+  background: white !important;
+  background-color: white !important;
+}
+
+[class*="left-navbar"] {
+  background: white !important;
+  background-color: white !important;
+}
+
+/* 左侧导航栏主容器 - 竖向布局（默认）*/
+.left-navbar.vertical {
+  position: fixed;
+  width: 48px;
+  background: white !important;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px;
+  gap: 6px;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  user-select: none;
+}
+
+/* 左侧导航栏主容器 - 横向布局 */
+.left-navbar.horizontal {
+  position: fixed;
+  width: auto;
+  height: 48px;
+  background: white !important;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 8px;
+  gap: 6px;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  user-select: none;
+}
+
+.left-navbar:hover {
+  opacity: 1;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  background: white;
+  border-color: #d9d9d9;
+  transform: scale(1.02);
+}
+
+.left-navbar.horizontal:hover {
+  transform: scale(1.02);
+}
+
+.left-navbar.vertical:hover {
+  transform: scale(1.02);
+}
+
+/* 拖拽状态 */
+.left-navbar.dragging {
+  opacity: 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: white;
+  transition: none;
+  cursor: grabbing !important;
+  border-color: #1890ff;
+}
+
+.left-navbar.dragging * {
+  cursor: grabbing !important;
+}
+
+/* 当鼠标离开后自动隐藏效果 */
+.left-navbar.auto-hide {
+  opacity: 0.6;
+  transform: scale(0.96);
+}
+
+.left-navbar.auto-hide:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* 拖拽提示样式已合并到按钮中，此部分可以移除 */
+
+/* 拖拽指示器样式 */
+.drag-indicator {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.left-navbar.horizontal .drag-indicator {
+  top: 4px;
+  right: 4px;
+}
+
+.left-navbar:hover .drag-indicator {
+  opacity: 0.7;
+}
+
+.left-navbar.dragging .drag-indicator {
+  opacity: 1;
+}
+
+.drag-dots {
+  display: flex;
+  flex-wrap: wrap;
+  width: 10px;
+  height: 10px;
+  gap: 1px;
+}
+
+.left-navbar.horizontal .drag-dots {
+  width: 10px;
+  height: 10px;
+}
+
+.drag-dots span {
+  width: 3px;
+  height: 3px;
+  background: #999;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.left-navbar:hover .drag-dots span {
+  background: #1890ff;
+}
+
+.left-navbar.dragging .drag-dots span {
+  background: #1890ff;
+  animation: dragPulse 1s ease-in-out infinite;
+}
+
+@keyframes dragPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* 导航栏头部 - 文档管理按钮 */
+.left-navbar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 6px;
+}
+
+/* 导航栏底部 */
+.left-navbar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 6px;
+}
+
+/* 导航按钮样式 */
+.nav-button {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #f0f8ff !important;
+  border: 1px solid #e8e8e8 !important;
+  transition: all 0.2s ease !important;
+  color: #666 !important;
+  cursor: pointer !important;
+}
+
+.nav-button:hover {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  transform: scale(1.08);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3) !important;
+}
+
+.nav-button:focus {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.nav-button:active {
+  transform: scale(1.02);
+  background: #1890ff !important;
+  color: white !important;
+}
+
+/* 拖拽时按钮样式 */
+.left-navbar.dragging .nav-button {
+  cursor: grabbing !important;
+  pointer-events: none;
+  /* 拖拽时禁用按钮点击 */
+}
+
+.left-navbar.dragging .nav-button:hover {
+  transform: none;
+}
+
+/* 头部按钮（文档管理）特殊样式 */
+.left-navbar-header .nav-button {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 18px !important;
+}
+
+/* 添加动态边框效果 */
+.left-navbar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, #1890ff, transparent);
+  border-radius: 14px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.left-navbar:hover::before {
+  opacity: 0.1;
+}
+
+.left-navbar.dragging::before {
+  opacity: 0.2;
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .left-navbar {
+    width: 44px;
+    padding: 6px 2px;
+  }
+
+  .nav-button {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+  }
+
+  .left-navbar-header .nav-button {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 18px !important;
+  }
+
+  .drag-indicator,
+  .drag-hint {
+    display: none;
+    /* 移动端隐藏拖拽提示 */
+  }
+}
+
+/* 深色模式适配 - 暂时禁用，强制使用白色主题 */
+@media (prefers-color-scheme: dark) {
+  .left-navbar {
+    background: white !important;
+    border-color: #e8e8e8 !important;
+  }
+
+  .left-navbar:hover {
+    background: white !important;
+    border-color: #d9d9d9 !important;
+  }
+
+  .left-navbar.dragging {
+    background: white !important;
+    border-color: #1890ff !important;
+  }
+
+  .left-navbar-header,
+  .left-navbar-footer {
+    border-color: #f0f0f0 !important;
+  }
+
+  .nav-button {
+    background: white !important;
+    color: #666 !important;
+  }
+
+  .nav-button:hover {
+    background: #f0f8ff !important;
+    color: #1890ff !important;
+    border-color: #d9d9d9 !important;
+  }
+
+  .left-navbar-header .nav-button {
+    background: #fafafa !important;
+    border-color: #e8e8e8 !important;
+    color: #666 !important;
+  }
+
+  .left-navbar-header .nav-button:hover {
+    background: #1890ff !important;
+    color: white !important;
+    border-color: #1890ff !important;
+  }
+
+  .left-navbar:hover::before {
+    background: linear-gradient(45deg, transparent, #1890ff, transparent);
+  }
+
+  .drag-dots span {
+    background: #1890ff;
+  }
+
+  .left-navbar:hover .drag-dots span {
+    background: #1890ff;
+  }
+
+  .left-navbar.dragging .drag-dots span {
+    background: #1890ff;
+  }
+
+  .drag-hint {
+    color: #666 !important;
+  }
+}
+
+/* 强制白色主题 - 覆盖所有其他样式 */
+.left-navbar {
+  background: white !important;
+  border: 2px solid #e8e8e8 !important;
+}
+
+.left-navbar:hover {
+  background: white !important;
+}
+
+.left-navbar.dragging {
+  background: white !important;
+}
+
+.left-navbar .ant-tooltip {
+  z-index: 1001;
+}
+
+/* 布局切换和拖拽控制区域 */
+.layout-toggle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-direction: column;
+  /* 竖向布局时垂直排列 */
+}
+
+/* 横向布局时改为水平排列 */
+.left-navbar.horizontal .layout-toggle-section {
+  flex-direction: row;
+  gap: 4px;
+}
+
+/* 布局切换按钮现在使用统一的nav-button样式 */
+
+/* 横向布局时的特殊调整 */
+.left-navbar.horizontal {
+  align-items: center;
+  /* 确保整个容器垂直居中 */
+}
+
+.left-navbar.horizontal .left-navbar-header,
+.left-navbar.horizontal .layout-toggle-section,
+.left-navbar.horizontal .left-navbar-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* 垂直居中对齐 */
+  gap: 4px;
+  height: 40px;
+  /* 统一高度 */
+  margin: 0;
+  /* 移除margin */
+  padding: 0;
+  /* 移除padding */
+  border: none;
+  /* 移除边框 */
+}
+
+.left-navbar.horizontal .left-navbar-footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* 横向布局时确保所有按钮大小和对齐一致 */
+.left-navbar.horizontal .nav-button {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 14px !important;
+}
+
+.left-navbar.horizontal .left-navbar-header .nav-button {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 16px !important;
+}
+
+/* 拖拽提示已合并为按钮，无需额外样式 */
+
+/* 竖向布局时保持原有样式 */
+.left-navbar.vertical .left-navbar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

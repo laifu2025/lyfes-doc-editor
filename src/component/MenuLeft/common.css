@@ -1,0 +1,87 @@
+.nice-menu-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 12px 5px 6px;
+}
+
+.nice-menu-shortcut {
+  color: gray;
+}
+
+.nice-menu-name {
+  margin-right: 10px;
+}
+
+.nice-menu-flag {
+  display: inline-block;
+  width: 16px;
+}
+
+.nice-menu-link {
+  color: #333;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nice-menu-link:hover {
+  color: #1890ff;
+  background-color: #f0f8ff;
+  text-decoration: none;
+}
+
+.nice-menu-link:focus {
+  color: #1890ff;
+  background: #e6f7ff;
+  text-decoration: none;
+  outline: none;
+}
+
+.nice-overlay {
+  top: 50px !important;
+}
+
+.nice-overlay ul {
+  border-radius: 0px 0px 4px 4px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nice-overlay ul .ant-dropdown-menu-item {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.nice-overlay ul label {
+  cursor: pointer;
+}
+
+/* 导入文件工具提示样式 */
+.import-file-tooltip .ant-tooltip-inner {
+  background: #fff;
+  color: #333;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 12px;
+  max-width: 280px;
+}
+
+.import-file-tooltip .ant-tooltip-arrow {
+  border-right-color: #d9d9d9;
+}
+
+.import-file-tooltip .ant-tooltip-arrow::before {
+  border-right-color: #fff;
+}

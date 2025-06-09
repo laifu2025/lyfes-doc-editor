@@ -1,0 +1,442 @@
+/*
+
+    Name:       Base16 Default Light
+    Author:     Chris Kempson (http://chriskempson.com)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+
+.cm-s-style-mirror.CodeMirror {
+  background: #f5f5f5;
+  color: #202020;
+  font-size: 14px;
+  padding: 20px;
+  line-height: 25px;
+}
+
+.cm-s-style-mirror div.CodeMirror-selected {
+  background: #e0e0e0;
+}
+
+.cm-s-style-mirror .CodeMirror-line::selection,
+.cm-s-style-mirror .CodeMirror-line>span::selection,
+.cm-s-style-mirror .CodeMirror-line>span>span::selection {
+  background: #e0e0e0;
+}
+
+.cm-s-style-mirror .CodeMirror-line::-moz-selection,
+.cm-s-style-mirror .CodeMirror-line>span::-moz-selection,
+.cm-s-style-mirror .CodeMirror-line>span>span::-moz-selection {
+  background: #e0e0e0;
+}
+
+.cm-s-style-mirror .CodeMirror-gutters {
+  background: #f5f5f5;
+  border-right: 0px;
+}
+
+.cm-s-style-mirror .CodeMirror-guttermarker {
+  color: #ac4142;
+}
+
+.cm-s-style-mirror .CodeMirror-guttermarker-subtle {
+  color: #b0b0b0;
+}
+
+.cm-s-style-mirror .CodeMirror-linenumber {
+  color: #b0b0b0;
+}
+
+.cm-s-style-mirror .CodeMirror-cursor {
+  border-left: 1px solid #505050;
+}
+
+.cm-s-style-mirror span.cm-comment {
+  color: #ac002b;
+}
+
+.cm-s-style-mirror span.cm-atom {
+  color: #aa759f;
+}
+
+.cm-s-style-mirror span.cm-number {
+  color: #aa759f;
+}
+
+.cm-s-style-mirror span.cm-property,
+.cm-s-style-mirror span.cm-attribute {
+  color: #90a959;
+}
+
+.cm-s-style-mirror span.cm-keyword {
+  color: #023a52;
+}
+
+.cm-s-style-mirror span.cm-string {
+  color: #e46918;
+}
+
+.cm-s-style-mirror span.cm-variable {
+  color: #90a959;
+}
+
+.cm-s-style-mirror span.cm-variable-2 {
+  color: #00695f;
+}
+
+.cm-s-style-mirror span.cm-variable-3 {
+  color: #2e6e8a;
+}
+
+.cm-s-style-mirror span.cm-def {
+  color: #d28445;
+}
+
+.cm-s-style-mirror span.cm-bracket {
+  color: #202020;
+}
+
+.cm-s-style-mirror span.cm-tag {
+  color: #ac4142;
+}
+
+.cm-s-style-mirror span.cm-link {
+  color: #b26a00;
+}
+
+.cm-s-style-mirror span.cm-error {
+  /* background: #ac4142;
+  color: #f5f5f5; */
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #df8d8e;
+}
+
+.cm-s-style-mirror .CodeMirror-activeline-background {
+  background: #dddcdc;
+}
+
+.cm-s-style-mirror .CodeMirror-matchingbracket {
+  color: rgb(32, 32, 32) !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.CodeMirror-hints {
+  background-color: rgb(245, 245, 245);
+  font-size: 14px;
+  font-family: 'source-code-pro', Menlo, 'Courier New', Consolas, monospace;
+}
+
+.CodeMirror-hints li {
+  line-height: 20px;
+}
+
+li.CodeMirror-hint-active {
+  color: black;
+  background-color: rgb(202, 222, 185);
+}
+
+.CodeMirror-hints li:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+/* ===== 深色模式 CSS 编辑器样式 ===== */
+body.dark-theme .cm-s-style-mirror.CodeMirror {
+  background: #1e1e1e !important;
+  color: #f0f0f0 !important;
+  font-size: 14px;
+  padding: 20px;
+  line-height: 25px;
+}
+
+body.dark-theme .cm-s-style-mirror div.CodeMirror-selected {
+  background: #264f78 !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-line::selection,
+body.dark-theme .cm-s-style-mirror .CodeMirror-line>span::selection,
+body.dark-theme .cm-s-style-mirror .CodeMirror-line>span>span::selection {
+  background: #264f78 !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-line::-moz-selection,
+body.dark-theme .cm-s-style-mirror .CodeMirror-line>span::-moz-selection,
+body.dark-theme .cm-s-style-mirror .CodeMirror-line>span>span::-moz-selection {
+  background: #264f78 !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-gutters {
+  background: #252525 !important;
+  border-right: 1px solid #3a3a3a !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-guttermarker {
+  color: #f14c4c !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-guttermarker-subtle {
+  color: #888 !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-linenumber {
+  color: #858585 !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-cursor {
+  border-left: 1px solid #f0f0f0 !important;
+}
+
+/* CSS 语法高亮 - 深色模式 */
+body.dark-theme .cm-s-style-mirror span.cm-comment {
+  color: #7c7c7c !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-atom {
+  color: #d197d9 !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-number {
+  color: #d197d9 !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-property,
+body.dark-theme .cm-s-style-mirror span.cm-attribute {
+  color: #9cdcfe !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-keyword {
+  color: #569cd6 !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-string {
+  color: #ce9178 !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-variable {
+  color: #9cdcfe !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-variable-2 {
+  color: #4fc1ff !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-variable-3 {
+  color: #4ec9b0 !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-def {
+  color: #dcdcaa !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-bracket {
+  color: #f0f0f0 !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-tag {
+  color: #f14c4c !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-link {
+  color: #40a9ff !important;
+}
+
+body.dark-theme .cm-s-style-mirror span.cm-error {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #f14c4c !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-activeline-background {
+  background: #2a2a2a !important;
+}
+
+body.dark-theme .cm-s-style-mirror .CodeMirror-matchingbracket {
+  color: #f0f0f0 !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 代码提示框深色模式 */
+body.dark-theme .CodeMirror-hints {
+  background-color: #252525 !important;
+  border: 1px solid #3a3a3a !important;
+  color: #f0f0f0 !important;
+  font-size: 14px;
+  font-family: 'source-code-pro', Menlo, 'Courier New', Consolas, monospace;
+}
+
+body.dark-theme .CodeMirror-hints li {
+  line-height: 20px;
+  color: #f0f0f0 !important;
+}
+
+body.dark-theme li.CodeMirror-hint-active {
+  color: #fff !important;
+  background-color: #40a9ff !important;
+}
+
+body.dark-theme .CodeMirror-hints li:hover {
+  background-color: #3a3a3a !important;
+  color: #40a9ff !important;
+}
+
+/* CSS 编辑器容器深色模式优化 */
+body.dark-theme .nice-style-editing {
+  background: #1e1e1e !important;
+  border-left: 1px solid #3a3a3a !important;
+}
+
+body.dark-theme .nice-style-editing .CodeMirror-scroll {
+  background: #1e1e1e !important;
+}
+
+body.dark-theme .nice-style-editing .CodeMirror-scrollbar-filler,
+body.dark-theme .nice-style-editing .CodeMirror-gutter-filler {
+  background: #1e1e1e !important;
+}
+
+/* CSS规则高亮样式 */
+.css-rule-highlight {
+  background: rgba(52, 152, 219, 0.2) !important;
+  animation: cssHighlight 3s ease-out;
+}
+
+body.dark-theme .css-rule-highlight {
+  background: rgba(64, 169, 255, 0.3) !important;
+}
+
+@keyframes cssHighlight {
+  0% {
+    background: rgba(52, 152, 219, 0.4) !important;
+  }
+
+  100% {
+    background: rgba(52, 152, 219, 0.1) !important;
+  }
+}
+
+/* 暗色主题下的CSS规则高亮动画 */
+body.dark-theme .css-rule-highlight {
+  animation: cssHighlightDark 3s ease-out;
+}
+
+@keyframes cssHighlightDark {
+  0% {
+    background: rgba(64, 169, 255, 0.5) !important;
+  }
+
+  100% {
+    background: rgba(64, 169, 255, 0.2) !important;
+  }
+}
+
+/* CSS规则高亮动画 */
+@keyframes highlight-flash {
+  0% {
+    background-color: #fff3cd;
+  }
+
+  50% {
+    background-color: #ffeaa7;
+  }
+
+  100% {
+    background-color: #fff3cd;
+  }
+}
+
+.css-rule-highlight {
+  animation: highlight-flash 2s ease-in-out;
+}
+
+/* StyleEditor工具栏样式 */
+.style-editor-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.style-editor-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  min-height: 40px;
+}
+
+.toolbar-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selected-element-info {
+  font-size: 13px;
+  color: #666;
+  padding: 4px 12px;
+  background: #e8f4f8;
+  border-radius: 12px;
+  border: 1px solid #d1ecf1;
+}
+
+.selected-element-info strong {
+  color: #0c63e4;
+  font-weight: 600;
+}
+
+/* CSS编辑器容器调整 */
+.style-editor-container .w-codemirror {
+  flex: 1;
+  height: auto !important;
+}
+
+.style-editor-container .w-codemirror .CodeMirror {
+  height: 100%;
+}
+
+/* 暗色主题下的工具栏样式 */
+/* 暗色模式工具栏样式 */
+body.dark-theme .style-editor-toolbar {
+  background: #1e1e1e;
+  border-bottom-color: #333;
+}
+
+body.dark-theme .selected-element-info {
+  color: #ccc;
+  background: #1e2733;
+  border: 1px solid #3a4556;
+}
+
+body.dark-theme .selected-element-info strong {
+  color: #61dafb;
+}
+
+[data-theme="dark"] .style-editor-toolbar {
+  background: #1e1e1e;
+  border-bottom-color: #333;
+}
+
+[data-theme="dark"] .selected-element-info {
+  color: #ccc;
+  background: #1e2733;
+  border: 1px solid #3a4556;
+}
+
+[data-theme="dark"] .selected-element-info strong {
+  color: #61dafb;
+}

@@ -1,0 +1,95 @@
+.nice-footer-container {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: white;
+  padding: 0 10px;
+  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia,
+    Times, "Times New Roman", serif;
+  z-index: 1000;
+}
+
+/* 编辑器底部状态栏样式 */
+.nice-editor-footer-container {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  background: #f5f5f5;
+  border-top: 1px solid #f5f5f5;
+  padding: 0 15px;
+  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia,
+    Times, "Times New Roman", serif;
+  flex-shrink: 0;
+}
+
+/* 沉浸式模式下的编辑器底部状态栏 */
+.nice-text-container-immersive .nice-editor-footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(245, 245, 245, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.nice-editor-footer-container p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0 10px;
+  color: #666;
+}
+
+.nice-footer-container p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.nice-footer-message {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 12px;
+  cursor: pointer;
+  background: #e6f7ff;
+  animation: gradientChange 5s ease forwards;
+  height: 100%;
+  padding: 0 10px;
+}
+
+@keyframes gradientChange {
+  100% {
+    background: white;
+  }
+}
+
+.nice-footer-message:hover {
+  color: #333;
+  background: #e6f7ff;
+  animation: none;
+}
+
+.nice-footer-engine {
+  display: flex;
+  color: #333;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 0px 5px;
+  cursor: pointer;
+}
+
+.nice-footer-engine:hover {
+  color: #333;
+}
+
+.nice-footer-engine:focus {
+  color: #333;
+  background: #e6f7ff;
+}
+
+.nice-footer-overlay {}

@@ -1,0 +1,272 @@
+.nice-app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "PingFang SC", BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serifhtml, body;
+  font-size: 16px;
+  background-color: white;
+}
+
+.nice-app-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* 文档管理面板样式 */
+.document-panel {
+  width: 280px;
+  min-width: 280px;
+  background: white;
+  border-right: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-content-area {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background: white;
+}
+
+.nice-text-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 90px);
+  width: 100%;
+  background: white;
+}
+
+.nice-text-container-immersive {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: white;
+}
+
+.nice-editor-area {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.nice-md-editing-immersive {
+  padding: 0px;
+  width: 100%;
+}
+
+.nice-md-editing-immersive .CodeMirror-lines {
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .nice-md-editing-immersive .CodeMirror-lines {
+    padding: 20px 10%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nice-md-editing-immersive .CodeMirror-lines {
+    padding: 20px 15%;
+  }
+}
+
+/* 编辑器最多会被分成三份width:33.3%，当两份时根据flex-grow:1伸展 */
+.nice-md-editing,
+.nice-style-editing {
+  position: relative;
+  width: 33.3%;
+  flex-grow: 1;
+  word-wrap: break-word;
+  z-index: 1;
+}
+
+/* CSS 编辑器容器样式优化 */
+.nice-style-editing {
+  border-left: 1px solid #e8e8e8;
+  background: #fafafa;
+}
+
+.nice-marked-text {
+  display: flex;
+  justify-content: center;
+  width: 33.3%;
+  flex-grow: 1;
+  padding: 20px;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.nice-marked-text-pc {
+  padding: 0;
+}
+
+.nice-wx-box {
+  overflow-y: auto;
+  padding: 25px 20px;
+  height: 100%;
+  width: 375px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
+}
+
+.nice-wx-box-pc {
+  width: 100%;
+  padding: 20px 35px 20px 20px;
+  box-shadow: none;
+}
+
+.nice-style-editing-hide {
+  display: none;
+}
+
+.nice-md-editing-hide {
+  display: none;
+}
+
+.nice-marked-text-hide {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media print {
+  .nice-md-editing {
+    display: none;
+  }
+
+  .nice-navbar {
+    display: none;
+  }
+
+  .nice-sidebar {
+    display: none;
+  }
+
+  .nice-wx-box {
+    overflow: visible;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .nice-style-editing {
+    display: none;
+  }
+
+  #nice-rich-text {
+    padding: 0 !important;
+  }
+
+  .nice-footer-container {
+    display: none;
+  }
+}
+
+/* ✅ 全局统一按钮样式 - 亮色风格 */
+.ant-btn:not(.ant-btn-primary):not(.ant-btn-danger):not(.ant-btn-link):not(.ant-btn-text) {
+  background: #f0f8ff !important;
+  border: 1px solid #e8e8e8 !important;
+  color: #666 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+}
+
+.ant-btn:not(.ant-btn-primary):not(.ant-btn-danger):not(.ant-btn-link):not(.ant-btn-text):hover {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3) !important;
+}
+
+.ant-btn:not(.ant-btn-primary):not(.ant-btn-danger):not(.ant-btn-link):not(.ant-btn-text):focus {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ant-btn:not(.ant-btn-primary):not(.ant-btn-danger):not(.ant-btn-link):not(.ant-btn-text):active {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  transform: translateY(0);
+}
+
+/* ✅ 保持primary按钮的特殊样式 */
+.ant-btn-primary {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-btn-primary:hover {
+  background: #40a9ff !important;
+  border-color: #40a9ff !important;
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.4) !important;
+}
+
+.ant-btn-primary:focus {
+  background: #40a9ff !important;
+  border-color: #40a9ff !important;
+  color: white !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ant-btn-primary:active {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  transform: translateY(0);
+}
+
+/* ✅ 图标按钮样式 */
+.ant-btn-icon-only {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+/* ✅ 小尺寸按钮 */
+.ant-btn-sm {
+  height: 28px !important;
+  padding: 0 8px !important;
+  font-size: 12px !important;
+}
+
+/* ✅ 大尺寸按钮 */
+.ant-btn-lg {
+  height: 40px !important;
+  padding: 0 16px !important;
+  font-size: 16px !important;
+}
+
+/* 确保现有的nice样式 */
